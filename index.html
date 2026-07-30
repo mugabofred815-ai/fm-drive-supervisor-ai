@@ -5,16 +5,26 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background:#f5f7fb;
     margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b1120;
+    color:white;
 }
 
 header {
-    background:#111827;
-    color:white;
-    padding:30px;
+    padding:40px;
     text-align:center;
+    background:linear-gradient(135deg,#111827,#1e293b);
+}
+
+header h1 {
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+header p {
+    color:#cbd5e1;
+    font-size:18px;
 }
 
 .container {
@@ -23,49 +33,92 @@ header {
 }
 
 .card {
-    background:white;
-    padding:20px;
-    margin:20px 0;
+    background:#111827;
+    margin:25px 0;
+    padding:25px;
     border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border:1px solid #334155;
 }
 
-.score {
-    font-size:40px;
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.stat {
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+}
+
+.number {
+    font-size:35px;
     font-weight:bold;
-    color:green;
+    color:#38bdf8;
 }
 
 button {
-    background:#2563eb;
-    color:white;
+    background:#0ea5e9;
     border:none;
-    padding:12px 20px;
+    color:white;
+    padding:14px 25px;
     border-radius:8px;
     cursor:pointer;
+    font-size:16px;
+}
+
+button:hover {
+    background:#0284c7;
+}
+
+.good {
+    color:#22c55e;
+}
+
+.warning {
+    color:#facc15;
+}
+
+.danger {
+    color:#ef4444;
 }
 
 .driver {
     display:flex;
     justify-content:space-between;
-    padding:12px;
-    border-bottom:1px solid #ddd;
+    padding:15px;
+    border-bottom:1px solid #334155;
 }
 
-.alert {
-    color:red;
+footer {
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <header>
-<h1>FM Drive Supervisor AI</h1>
-<p>AI-powered virtual driving instructor for driving schools</p>
+
+<h1>🚗 FM Drive Supervisor AI</h1>
+
+<p>
+AI-powered virtual driving instructor and remote driver supervision platform
+</p>
+
+<button onclick="startDemo()">
+Start Driver Demo
+</button>
+
 </header>
+
 
 
 <div class="container">
@@ -73,21 +126,44 @@ button {
 
 <div class="card">
 
-<h2>👨‍🎓 Learner Driver App</h2>
+<h2>👨‍🎓 Learner Driver Mode</h2>
 
-<p><b>Student:</b> Jean Claude</p>
+<p>
+Driver: Jean Claude
+</p>
 
-<p>Current Driving Score</p>
+<div class="grid">
 
-<div class="score">85%</div>
+<div class="stat">
+<p>Driving Score</p>
+<div class="number">85%</div>
+</div>
 
-<button onclick="coach()">
-Start AI Coaching
-</button>
 
-<p id="feedback"></p>
+<div class="stat">
+<p>Safety Level</p>
+<div class="good">
+Excellent
+</div>
+</div>
+
+
+<div class="stat">
+<p>Training Progress</p>
+<div class="number">72%</div>
+</div>
 
 </div>
+
+
+<p id="coach">
+AI Coach waiting...
+</p>
+
+
+</div>
+
+
 
 
 
@@ -96,70 +172,119 @@ Start AI Coaching
 <h2>🤖 AI Driving Analysis</h2>
 
 <ul>
-<li>✅ Speed control: Good</li>
-<li>✅ Road signs: Good</li>
-<li>⚠️ Braking distance: Needs practice</li>
-<li>⚠️ Intersection awareness: Improve</li>
+
+<li class="good">
+✔ Speed control: Good
+</li>
+
+<li class="good">
+✔ Road sign awareness: Good
+</li>
+
+<li class="warning">
+⚠ Braking distance needs improvement
+</li>
+
+<li class="warning">
+⚠ Improve intersection decisions
+</li>
+
 </ul>
 
 </div>
 
 
 
+
+
 <div class="card">
 
-<h2>👨‍🏫 Driving School Supervisor Dashboard</h2>
+<h2>👨‍🏫 Supervisor Dashboard</h2>
+
+<p>
+Driving school instructors can monitor learners remotely.
+</p>
 
 
 <div class="driver">
 <span>Jean Claude</span>
-<span>85%</span>
+<span class="good">85%</span>
 </div>
 
 
 <div class="driver">
 <span>Marie</span>
-<span>92%</span>
+<span class="good">92%</span>
 </div>
 
 
 <div class="driver">
 <span>Eric</span>
-<span class="alert">68%</span>
+<span class="danger">68%</span>
 </div>
 
 
 <br>
 
 <button onclick="report()">
-Generate Student Report
+Generate AI Report
 </button>
+
 
 <p id="report"></p>
 
+
 </div>
 
 
+
+
+
+<div class="card">
+
+<h2>🚘 Future Vehicle Integration</h2>
+
+<p>
+FM Drive Supervisor AI can integrate with smartphones,
+dash cameras, and vehicle sensors to provide real-time
+driver coaching and safety monitoring.
+</p>
+
 </div>
+
+
+
+</div>
+
+
+
+<footer>
+
+FM Drive Supervisor AI © 2026
+
+</footer>
 
 
 
 <script>
 
-function coach(){
 
-document.getElementById("feedback").innerHTML =
-"AI Coach: Remember to check mirrors before changing lanes and slow down near intersections.";
+function startDemo(){
+
+document.getElementById("coach").innerHTML =
+"🤖 AI Coach: Slow down before intersections. Remember to check mirrors before changing lanes.";
 
 }
+
 
 
 function report(){
 
 document.getElementById("report").innerHTML =
-"Report generated: Eric needs additional practice with braking and intersections.";
+"AI Report: Driver needs additional practice in braking control and intersection safety.";
 
 }
+
 
 </script>
 
