@@ -421,7 +421,38 @@ document.getElementById("coach").innerHTML =
 
 }
 
+function askCoach(){
 
+let question =
+document.getElementById("question").value.toLowerCase();
+
+let answer =
+"Practice regularly and always follow road safety rules.";
+
+if(question.includes("points")){
+answer =
+"You lost points because of unsafe driving habits. Focus on speed control, braking distance, and checking mirrors.";
+}
+
+else if(question.includes("roundabout")){
+answer =
+"Slow down before entering, check traffic, give priority when required, and signal before exiting.";
+}
+
+else if(question.includes("parking")){
+answer =
+"Use your mirrors, check your surroundings, control your speed, and make small steering adjustments.";
+}
+
+else if(question.includes("improve")){
+answer =
+"Focus on smooth braking, safe distance, mirror checks, and awareness of other road users.";
+}
+
+document.getElementById("coach").innerHTML =
+"🤖 AI Coach: " + answer;
+
+}
 
 function report(){
 
