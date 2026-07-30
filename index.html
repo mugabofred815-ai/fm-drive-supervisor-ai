@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FM Drive Supervisor AI</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    margin:0;
+}
+
+header {
+    background:#111827;
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+.container {
+    width:90%;
+    margin:auto;
+}
+
+.card {
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.score {
+    font-size:40px;
+    font-weight:bold;
+    color:green;
+}
+
+button {
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.driver {
+    display:flex;
+    justify-content:space-between;
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.alert {
+    color:red;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+<h1>FM Drive Supervisor AI</h1>
+<p>AI-powered virtual driving instructor for driving schools</p>
+</header>
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>👨‍🎓 Learner Driver App</h2>
+
+<p><b>Student:</b> Jean Claude</p>
+
+<p>Current Driving Score</p>
+
+<div class="score">85%</div>
+
+<button onclick="coach()">
+Start AI Coaching
+</button>
+
+<p id="feedback"></p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🤖 AI Driving Analysis</h2>
+
+<ul>
+<li>✅ Speed control: Good</li>
+<li>✅ Road signs: Good</li>
+<li>⚠️ Braking distance: Needs practice</li>
+<li>⚠️ Intersection awareness: Improve</li>
+</ul>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👨‍🏫 Driving School Supervisor Dashboard</h2>
+
+
+<div class="driver">
+<span>Jean Claude</span>
+<span>85%</span>
+</div>
+
+
+<div class="driver">
+<span>Marie</span>
+<span>92%</span>
+</div>
+
+
+<div class="driver">
+<span>Eric</span>
+<span class="alert">68%</span>
+</div>
+
+
+<br>
+
+<button onclick="report()">
+Generate Student Report
+</button>
+
+<p id="report"></p>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+function coach(){
+
+document.getElementById("feedback").innerHTML =
+"AI Coach: Remember to check mirrors before changing lanes and slow down near intersections.";
+
+}
+
+
+function report(){
+
+document.getElementById("report").innerHTML =
+"Report generated: Eric needs additional practice with braking and intersections.";
+
+}
+
+</script>
+
+
+</body>
+</html>
