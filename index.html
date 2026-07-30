@@ -1,100 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>FM Drive Supervisor AI</title>
 
 <style>
-body {
+
+body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#0b1120;
+    background:#070b16;
     color:white;
 }
 
-header {
+header{
+    background:#111827;
     padding:40px;
     text-align:center;
-    background:linear-gradient(135deg,#111827,#1e293b);
 }
 
-header h1 {
+h1{
     font-size:42px;
-    margin-bottom:10px;
 }
 
-header p {
-    color:#cbd5e1;
+.subtitle{
+    color:#94a3b8;
     font-size:18px;
 }
 
-.container {
+.container{
     width:90%;
     margin:auto;
 }
 
-.card {
+.card{
     background:#111827;
-    margin:25px 0;
     padding:25px;
+    margin:25px 0;
     border-radius:15px;
     border:1px solid #334155;
 }
 
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
 
-.stat {
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-}
+button{
 
-.number {
-    font-size:35px;
-    font-weight:bold;
-    color:#38bdf8;
-}
-
-button {
-    background:#0ea5e9;
-    border:none;
+    background:#0284c7;
     color:white;
+    border:none;
     padding:14px 25px;
-    border-radius:8px;
+    border-radius:10px;
+    margin:10px;
     cursor:pointer;
     font-size:16px;
+
 }
 
-button:hover {
-    background:#0284c7;
+
+button:hover{
+    background:#0369a1;
 }
 
-.good {
-    color:#22c55e;
+
+.hidden{
+    display:none;
 }
 
-.warning {
-    color:#facc15;
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+
 }
 
-.danger {
-    color:#ef4444;
+
+.box{
+
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+
 }
 
-.driver {
-    display:flex;
-    justify-content:space-between;
-    padding:15px;
-    border-bottom:1px solid #334155;
+
+.number{
+
+font-size:35px;
+color:#38bdf8;
+font-weight:bold;
+
 }
 
-footer {
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
+
+.good{
+color:#22c55e;
+}
+
+
+.warning{
+color:#facc15;
+}
+
+
+.danger{
+color:#ef4444;
+}
+
+
+.student{
+
+display:flex;
+justify-content:space-between;
+padding:15px;
+border-bottom:1px solid #334155;
+
+}
+
+
+footer{
+
+text-align:center;
+padding:30px;
+color:#64748b;
+
 }
 
 </style>
@@ -109,13 +138,20 @@ footer {
 
 <h1>🚗 FM Drive Supervisor AI</h1>
 
-<p>
-AI-powered virtual driving instructor and remote driver supervision platform
+<p class="subtitle">
+AI-powered virtual driving instructor and remote supervision platform
 </p>
 
-<button onclick="startDemo()">
-Start Driver Demo
+
+<button onclick="showDriver()">
+🚗 Driver Login
 </button>
+
+
+<button onclick="showSupervisor()">
+👨‍🏫 Supervisor Login
+</button>
+
 
 </header>
 
@@ -124,41 +160,77 @@ Start Driver Demo
 <div class="container">
 
 
-<div class="card">
 
-<h2>👨‍🎓 Learner Driver Mode</h2>
+<!-- DRIVER SECTION -->
+
+<div id="driver" class="card hidden">
+
+
+<h2>🚗 Learner Driver Dashboard</h2>
+
 
 <p>
-Driver: Jean Claude
+Student: <b>Jean Claude</b>
 </p>
+
 
 <div class="grid">
 
-<div class="stat">
+
+<div class="box">
+
 <p>Driving Score</p>
-<div class="number">85%</div>
+
+<div class="number">
+85%
+</div>
+
 </div>
 
 
-<div class="stat">
-<p>Safety Level</p>
-<div class="good">
-Excellent
-</div>
-</div>
 
+<div class="box">
 
-<div class="stat">
 <p>Training Progress</p>
-<div class="number">72%</div>
+
+<div class="number">
+72%
 </div>
 
 </div>
+
+
+
+<div class="box">
+
+<p>Safety Level</p>
+
+<h3 class="good">
+Good
+</h3>
+
+</div>
+
+
+</div>
+
+
+
+<h3>🤖 AI Coach Feedback</h3>
 
 
 <p id="coach">
-AI Coach waiting...
+
+Start a driving session to receive coaching.
+
 </p>
+
+
+<button onclick="coach()">
+
+Start AI Coaching
+
+</button>
 
 
 </div>
@@ -167,67 +239,95 @@ AI Coach waiting...
 
 
 
-<div class="card">
+<!-- SUPERVISOR SECTION -->
 
-<h2>🤖 AI Driving Analysis</h2>
+<div id="supervisor" class="card hidden">
+
+
+<h2>
+👨‍🏫 Driving School Supervisor Dashboard
+</h2>
+
+
+<p>
+Monitor learners remotely without being inside the vehicle.
+</p>
+
+
+
+<div class="student">
+
+<span>
+Jean Claude
+</span>
+
+<span class="good">
+85%
+</span>
+
+</div>
+
+
+
+<div class="student">
+
+<span>
+Marie
+</span>
+
+<span class="good">
+92%
+</span>
+
+</div>
+
+
+
+<div class="student">
+
+<span>
+Eric
+</span>
+
+<span class="danger">
+68%
+</span>
+
+</div>
+
+
+
+
+<h3>
+AI Risk Alerts
+</h3>
+
 
 <ul>
 
-<li class="good">
-✔ Speed control: Good
+<li class="warning">
+Eric needs improvement in braking control
 </li>
 
-<li class="good">
-✔ Road sign awareness: Good
-</li>
 
 <li class="warning">
-⚠ Braking distance needs improvement
+Jean Claude needs more intersection practice
 </li>
 
-<li class="warning">
-⚠ Improve intersection decisions
+
+<li class="good">
+Marie is improving consistently
 </li>
+
 
 </ul>
 
-</div>
 
-
-
-
-
-<div class="card">
-
-<h2>👨‍🏫 Supervisor Dashboard</h2>
-
-<p>
-Driving school instructors can monitor learners remotely.
-</p>
-
-
-<div class="driver">
-<span>Jean Claude</span>
-<span class="good">85%</span>
-</div>
-
-
-<div class="driver">
-<span>Marie</span>
-<span class="good">92%</span>
-</div>
-
-
-<div class="driver">
-<span>Eric</span>
-<span class="danger">68%</span>
-</div>
-
-
-<br>
 
 <button onclick="report()">
+
 Generate AI Report
+
 </button>
 
 
@@ -240,17 +340,26 @@ Generate AI Report
 
 
 
+
 <div class="card">
 
-<h2>🚘 Future Vehicle Integration</h2>
+
+<h2>
+🚘 Future Vision
+</h2>
+
 
 <p>
-FM Drive Supervisor AI can integrate with smartphones,
-dash cameras, and vehicle sensors to provide real-time
-driver coaching and safety monitoring.
+
+FM Drive Supervisor AI will combine mobile technology,
+AI analysis, and vehicle data to create a virtual driving
+instructor available anywhere.
+
 </p>
 
+
 </div>
+
 
 
 
@@ -266,13 +375,34 @@ FM Drive Supervisor AI © 2026
 
 
 
+
 <script>
 
 
-function startDemo(){
+function showDriver(){
+
+document.getElementById("driver").style.display="block";
+
+document.getElementById("supervisor").style.display="none";
+
+}
+
+
+
+function showSupervisor(){
+
+document.getElementById("supervisor").style.display="block";
+
+document.getElementById("driver").style.display="none";
+
+}
+
+
+
+function coach(){
 
 document.getElementById("coach").innerHTML =
-"🤖 AI Coach: Slow down before intersections. Remember to check mirrors before changing lanes.";
+"🤖 AI Coach: Slow down before intersections. Check mirrors before changing lanes and maintain safe distance.";
 
 }
 
@@ -281,7 +411,7 @@ document.getElementById("coach").innerHTML =
 function report(){
 
 document.getElementById("report").innerHTML =
-"AI Report: Driver needs additional practice in braking control and intersection safety.";
+"AI Report Generated: Driver performance analysis completed successfully.";
 
 }
 
@@ -289,5 +419,7 @@ document.getElementById("report").innerHTML =
 </script>
 
 
+
 </body>
+
 </html>
